@@ -1,0 +1,54 @@
+{
+    "experiment_name": "task3_peaceful_v9_tactical_bombs_reward_v3_10_10000_v1",
+    "description": "V9 tactical bomb and safe body-block training with Reward V3.10: train from scratch for 10000 rounds on seed pair 21/20021 against peaceful_agent, with epsilon reaching its 0.05 minimum after 6500 completed rounds. Match the preceding V8 10000-round run in all training and evaluation settings. Evaluate on five held-out seed pairs with 200 rounds each. Self-kill and pressure-chain diagnostics are collected directly during evaluation; replay recording is disabled.",
+    "agent": "q_learning_agent",
+    "opponents": [
+        "peaceful_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v9",
+    "reward_version": "task3_hierarchical_tactical_hold_v3_10",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task3_epsilon_6500_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "training": {
+        "rounds": 10000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 21,
+                "agent_seed": 20021
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task3_peaceful_held_out_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "runs": [
+            {
+                "world_seed": 201,
+                "agent_seed": 20201
+            },
+            {
+                "world_seed": 202,
+                "agent_seed": 20202
+            },
+            {
+                "world_seed": 203,
+                "agent_seed": 20203
+            },
+            {
+                "world_seed": 204,
+                "agent_seed": 20204
+            },
+            {
+                "world_seed": 205,
+                "agent_seed": 20205
+            }
+        ]
+    }
+}

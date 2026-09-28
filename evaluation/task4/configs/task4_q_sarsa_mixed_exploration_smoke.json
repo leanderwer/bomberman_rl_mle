@@ -1,0 +1,62 @@
+{
+  "experiment_name": "task4_q_sarsa_mixed_exploration_smoke_v1",
+  "description": "Infrastructure smoke test only: 20 shared training rounds, Q-learning with epsilon and SARSA with softmax, then two held-out evaluations of five rounds per learner. This does not measure trained policy quality.",
+  "experiment_mode": "joint_train_and_evaluate",
+  "scenario": "classic",
+  "coins_per_round": 9,
+  "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+  "reward_version": "task3_hierarchical_tactical_v5",
+  "learners": [
+    {
+      "agent": "q_learning_agent",
+      "action_space_version": "task2_all_actions_v1",
+      "learning_rate_version": "task2_visit_decay_power_060_v1",
+      "exploration_version": "task3_epsilon_22000_v1",
+      "discount_factor_version": "gamma_095_v1",
+      "td_target_version": "q_learning_5_step_v1"
+    },
+    {
+      "agent": "sarsa_agent",
+      "action_space_version": "task2_all_actions_v1",
+      "learning_rate_version": "task2_visit_decay_power_060_v1",
+      "exploration_version": "task3_softmax_22000_v1",
+      "discount_factor_version": "gamma_095_v1",
+      "td_target_version": "sarsa_5_step_v1"
+    }
+  ],
+  "training": {
+    "rounds": 20,
+    "checkpoint_interval": 10,
+    "opponents": [
+      "rule_based_agent",
+      "rule_based_agent"
+    ],
+    "runs": [
+      {
+        "world_seed": 21,
+        "agent_seeds": {
+          "q_learning_agent": 20021,
+          "sarsa_agent": 30021
+        }
+      }
+    ]
+  },
+  "evaluation": {
+    "rounds_per_seed": 5,
+    "opponents": [
+      "rule_based_agent",
+      "rule_based_agent",
+      "rule_based_agent"
+    ],
+    "runs": [
+      {
+        "world_seed": 201,
+        "agent_seed": 20201
+      },
+      {
+        "world_seed": 202,
+        "agent_seed": 20202
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+    "experiment_name": "task2_parallel_masks_v3_independent_targets_reward_v3_4_contrastive_long_100000_v1",
+    "description": "Controlled single-seed 100000-round extension of the Task 2 V3.4 contrastive-target experiment. It uses the same feature, reward, action-space, discount-factor, checkpoint, seed, and evaluation settings as the preceding V3.4 experiments. Exploration decays multiplicatively from epsilon 1.0 to 0.05 over 70000 rounds and remains at 0.05 for the final 30000 rounds. The Task 2 long-horizon visit schedule starts at alpha 0.1 and follows 0.1 * (100 / (99 + N(s,a)))^0.6 so repeatedly updated pairs remain learnable without preventing asymptotic stabilization.",
+    "agent": "q_learning_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_parallel_masks_independent_targets_v3",
+    "reward_version": "task2_hierarchical_independent_targets_v3_4",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task2_epsilon_70000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "training": {
+        "rounds": 100000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_development_comparison_v1",
+        "rounds_per_seed": 50,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "experiment_name": "task1_learning_rate_constant_smoke",
+    "description": "Smoke test for the BFS-mask agent with a constant learning rate.",
+    "agent": "q_learning_agent",
+    "scenario": "coin-heaven",
+    "feature_version": "task1_bfs_mask_v1",
+    "reward_version": "task1_wait_v1",
+    "learning_rate_version": "task1_constant_v1",
+    "training": {
+        "rounds": 50,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "learning_rate_smoke_v1",
+        "rounds_per_seed": 10,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            }
+        ]
+    }
+}

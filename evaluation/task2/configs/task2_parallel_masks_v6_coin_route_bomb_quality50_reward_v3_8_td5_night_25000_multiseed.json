@@ -1,0 +1,58 @@
+{
+    "experiment_name": "task2_parallel_masks_v6_coin_route_bomb_quality50_reward_v3_8_td5_night_25000_multiseed_v1",
+    "description": "Final Task 2 winner-confirmation run for Feature V6 quality50 and Reward V3.8. Three independent models are trained for 25000 rounds on disjoint world and agent seed pairs. The versioned task2_epsilon_15000_v1 schedule reaches epsilon 0.05 after 15000 rounds and holds it there for the final 10000 rounds. Feature V6 keeps the exact global bomb optimum and admits at most the best safe productive coin-route alternative whose discounted crate-yield score reaches at least 50 percent of the global optimum, subject to the existing shortest-route and constrained-escape requirements. Reward V3.8 uses +/-0.30 selected-target bomb feedback, -0.70 invalid-action feedback, and +/-0.060 single-objective and joint safe-target navigation feedback while preserving the V3.7 true-conflict hierarchy. Every trained model is evaluated for 200 rounds on each of the same five evaluation seed pairs, yielding 3000 evaluation rounds in total.",
+    "agent": "q_learning_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_parallel_masks_coin_route_bomb_v6",
+    "reward_version": "task2_hierarchical_independent_targets_v3_8",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task2_epsilon_15000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "training": {
+        "rounds": 25000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            },
+            {
+                "world_seed": 12,
+                "agent_seed": 10012
+            },
+            {
+                "world_seed": 13,
+                "agent_seed": 10013
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_winner_confirmation_v1",
+        "rounds_per_seed": 200,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

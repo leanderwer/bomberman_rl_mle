@@ -1,0 +1,59 @@
+{
+    "experiment_name": "Report_Task2_ConflictBuckets_10000",
+    "description": "Report target-class ablation: preserve V6 quality50 coin-route targets, D4, R3.8 and TD5, but add coin-distance and bomb-quality classes to the Q key only for true safe-target conflicts; use V4 inactive sentinels otherwise. R3.8 rewards stay class-neutral. Same seed and epsilon schedule as the reference; compare at 10000.",
+    "agent": "q_learning_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_report_v6_conflict_classes_v1",
+    "reward_version": "task2_hierarchical_independent_targets_v3_8",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task3_epsilon_7000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "training": {
+        "rounds": 10000,
+        "checkpoint_interval": 100,
+        "snapshot_rounds": [
+            5000
+        ],
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "Report_task2_common_101_105_v1",
+        "rounds_per_seed": 200,
+        "checkpoints": [
+            {
+                "rounds": 5000,
+                "rounds_per_seed": 100
+            }
+        ],
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

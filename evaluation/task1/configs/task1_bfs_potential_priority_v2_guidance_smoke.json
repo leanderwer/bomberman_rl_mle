@@ -1,0 +1,29 @@
+{
+    "experiment_name": "task1_bfs_potential_priority_v2_guidance_smoke",
+    "description": "Smoke test for the gated categorical potential hint with balanced potential-guidance reward shaping.",
+    "agent": "q_learning_agent",
+    "scenario": "coin-heaven",
+    "feature_version": "task1_bfs_potential_priority_v2",
+    "reward_version": "task1_potential_guidance_v1",
+    "learning_rate_version": "task1_visit_decay_v1",
+    "exploration_version": "task1_epsilon_3000_v1",
+    "training": {
+        "rounds": 50,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "potential_priority_v2_guidance_smoke_v1",
+        "rounds_per_seed": 10,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            }
+        ]
+    }
+}

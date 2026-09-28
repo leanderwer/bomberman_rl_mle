@@ -1,0 +1,32 @@
+{
+    "experiment_name": "task2_baseline_smoke_v1_sarsa",
+    "description": "End-to-end smoke test of the first bomb-aware Task 2 feature and sparse event-based reward on Classic.",
+    "agent": "sarsa_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_baseline_v1",
+    "reward_version": "task2_baseline_v1",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task1_visit_decay_v1",
+    "exploration_version": "task2_epsilon_3000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "training": {
+        "rounds": 50,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_baseline_smoke_v1",
+        "rounds_per_seed": 10,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            }
+        ]
+    }
+}

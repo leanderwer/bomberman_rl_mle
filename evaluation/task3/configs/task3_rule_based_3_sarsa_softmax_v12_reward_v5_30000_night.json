@@ -1,0 +1,87 @@
+{
+    "experiment_name": "task3_rule_based_3_sarsa_softmax_v12_reward_v5_30000_night_v1",
+    "description": "Fresh five-step SARSA training with softmax exploration against three explicitly seeded rule_based_agent opponents. Corrected V12 features, Reward V5, pressure threshold 0.25 and pressure distance discount 0.95. Train 30000 rounds with world/agent seeds 21/20021, alpha 0.1 with visit-decay power 0.60 and gamma 0.95. Temperature decreases from 1.0 to 0.05 after 22000 completed rounds. Save checkpoints and state-action update counts every 100 rounds. Evaluate greedily on five common, explicitly seeded opponent/world/agent sets, 200 rounds each. Only the exploration strategy differs between the two SARSA night-run configurations; no warm start and no changes to final_agent.",
+    "agent": "sarsa_agent",
+    "opponents": [
+        "rule_based_agent",
+        "rule_based_agent",
+        "rule_based_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+    "reward_version": "task3_hierarchical_tactical_v5",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task3_softmax_22000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "sarsa_5_step_v1",
+    "training": {
+        "rounds": 30000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 21,
+                "agent_seed": 20021,
+                "opponent_agent_seeds": [
+                    30021,
+                    40021,
+                    50021
+                ]
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task3_seeded_rule_based_3_211_215_5x200_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "runs": [
+            {
+                "world_seed": 211,
+                "agent_seed": 20211,
+                "opponent_agent_seeds": [
+                    30211,
+                    40211,
+                    50211
+                ]
+            },
+            {
+                "world_seed": 212,
+                "agent_seed": 20212,
+                "opponent_agent_seeds": [
+                    30212,
+                    40212,
+                    50212
+                ]
+            },
+            {
+                "world_seed": 213,
+                "agent_seed": 20213,
+                "opponent_agent_seeds": [
+                    30213,
+                    40213,
+                    50213
+                ]
+            },
+            {
+                "world_seed": 214,
+                "agent_seed": 20214,
+                "opponent_agent_seeds": [
+                    30214,
+                    40214,
+                    50214
+                ]
+            },
+            {
+                "world_seed": 215,
+                "agent_seed": 20215,
+                "opponent_agent_seeds": [
+                    30215,
+                    40215,
+                    50215
+                ]
+            }
+        ]
+    },
+    "experiment_mode": "train_and_evaluate"
+}

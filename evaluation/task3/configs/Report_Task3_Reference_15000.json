@@ -1,0 +1,96 @@
+{
+    "experiment_name": "Report_Task3_Reference_15000",
+    "description": "Shared Report reference: fresh corrected V12/R5 with HOLD pooling, movement/local-escape opponent-block forecasts and unchanged complete offensive blockade certificates. Sampled TD5 Q-learning with epsilon decreasing from1.0 to0.05 by10000, train15000 rounds against three explicitly seeded rule_based agents. Fixed10000 snapshot5x100 and15000 endpoint5x200; pressure0.25/discount0.95. One training seed, no warm start.",
+    "agent": "q_learning_agent",
+    "opponents": [
+        "rule_based_agent",
+        "rule_based_agent",
+        "rule_based_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+    "reward_version": "task3_hierarchical_tactical_v5",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task2_epsilon_10000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "training": {
+        "rounds": 15000,
+        "checkpoint_interval": 100,
+        "snapshot_rounds": [
+            10000
+        ],
+        "runs": [
+            {
+                "world_seed": 21,
+                "agent_seed": 20021,
+                "opponent_agent_seeds": [
+                    30021,
+                    40021,
+                    50021
+                ]
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "Report_task3_seeded_rule_based_3_211_215_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "checkpoints": [
+            {
+                "rounds": 10000,
+                "rounds_per_seed": 100
+            }
+        ],
+        "runs": [
+            {
+                "world_seed": 211,
+                "agent_seed": 20211,
+                "opponent_agent_seeds": [
+                    30211,
+                    40211,
+                    50211
+                ]
+            },
+            {
+                "world_seed": 212,
+                "agent_seed": 20212,
+                "opponent_agent_seeds": [
+                    30212,
+                    40212,
+                    50212
+                ]
+            },
+            {
+                "world_seed": 213,
+                "agent_seed": 20213,
+                "opponent_agent_seeds": [
+                    30213,
+                    40213,
+                    50213
+                ]
+            },
+            {
+                "world_seed": 214,
+                "agent_seed": 20214,
+                "opponent_agent_seeds": [
+                    30214,
+                    40214,
+                    50214
+                ]
+            },
+            {
+                "world_seed": 215,
+                "agent_seed": 20215,
+                "opponent_agent_seeds": [
+                    30215,
+                    40215,
+                    50215
+                ]
+            }
+        ]
+    },
+    "experiment_mode": "train_and_evaluate"
+}

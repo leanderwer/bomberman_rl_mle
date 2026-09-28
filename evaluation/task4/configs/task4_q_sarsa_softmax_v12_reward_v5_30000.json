@@ -1,0 +1,74 @@
+{
+  "experiment_name": "task4_q_sarsa_softmax_v12_reward_v5_30000_v1",
+  "description": "Fresh joint training of five-step Q-learning and SARSA with independent tables and RNGs against two rule_based_agent opponents. Both use corrected V12, Reward V5, alpha 0.1 visit decay power 0.60, gamma 0.95, and softmax (Boltzmann) exploration reaching its temperature minimum after 22000 completed rounds. Evaluate each model separately against three rule_based_agent opponents. No warm start.",
+  "experiment_mode": "joint_train_and_evaluate",
+  "scenario": "classic",
+  "coins_per_round": 9,
+  "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+  "reward_version": "task3_hierarchical_tactical_v5",
+  "learners": [
+    {
+      "agent": "q_learning_agent",
+      "action_space_version": "task2_all_actions_v1",
+      "learning_rate_version": "task2_visit_decay_power_060_v1",
+      "exploration_version": "task3_softmax_22000_v1",
+      "discount_factor_version": "gamma_095_v1",
+      "td_target_version": "q_learning_5_step_v1"
+    },
+    {
+      "agent": "sarsa_agent",
+      "action_space_version": "task2_all_actions_v1",
+      "learning_rate_version": "task2_visit_decay_power_060_v1",
+      "exploration_version": "task3_softmax_22000_v1",
+      "discount_factor_version": "gamma_095_v1",
+      "td_target_version": "sarsa_5_step_v1"
+    }
+  ],
+  "training": {
+    "rounds": 30000,
+    "checkpoint_interval": 100,
+    "opponents": [
+      "rule_based_agent",
+      "rule_based_agent"
+    ],
+    "runs": [
+      {
+        "world_seed": 21,
+        "agent_seeds": {
+          "q_learning_agent": 20021,
+          "sarsa_agent": 30021
+        }
+      }
+    ]
+  },
+  "evaluation": {
+    "rounds_per_seed": 200,
+    "opponents": [
+      "rule_based_agent",
+      "rule_based_agent",
+      "rule_based_agent"
+    ],
+    "runs": [
+      {
+        "world_seed": 201,
+        "agent_seed": 20201
+      },
+      {
+        "world_seed": 202,
+        "agent_seed": 20202
+      },
+      {
+        "world_seed": 203,
+        "agent_seed": 20203
+      },
+      {
+        "world_seed": 204,
+        "agent_seed": 20204
+      },
+      {
+        "world_seed": 205,
+        "agent_seed": 20205
+      }
+    ]
+  }
+}

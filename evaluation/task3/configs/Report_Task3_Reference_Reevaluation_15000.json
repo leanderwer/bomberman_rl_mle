@@ -1,0 +1,80 @@
+{
+    "experiment_name": "Report_Task3_Reference_Reevaluation_15000",
+    "description": "Re-evaluate the already trained Report V12 reference with independently certified blockade/HOLD opportunity diagnostics. No new learning, same fixed 15000-round checkpoint and five 200-round evaluation streams. Existing source model and results are never overwritten.",
+    "agent": "q_learning_agent",
+    "opponents": [
+        "rule_based_agent",
+        "rule_based_agent",
+        "rule_based_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+    "reward_version": "task3_hierarchical_tactical_v5",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task2_epsilon_10000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "evaluation": {
+        "seed_set": "Report_task3_seeded_rule_based_3_211_215_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "checkpoints": [],
+        "runs": [
+            {
+                "world_seed": 211,
+                "agent_seed": 20211,
+                "opponent_agent_seeds": [
+                    30211,
+                    40211,
+                    50211
+                ]
+            },
+            {
+                "world_seed": 212,
+                "agent_seed": 20212,
+                "opponent_agent_seeds": [
+                    30212,
+                    40212,
+                    50212
+                ]
+            },
+            {
+                "world_seed": 213,
+                "agent_seed": 20213,
+                "opponent_agent_seeds": [
+                    30213,
+                    40213,
+                    50213
+                ]
+            },
+            {
+                "world_seed": 214,
+                "agent_seed": 20214,
+                "opponent_agent_seeds": [
+                    30214,
+                    40214,
+                    50214
+                ]
+            },
+            {
+                "world_seed": 215,
+                "agent_seed": 20215,
+                "opponent_agent_seeds": [
+                    30215,
+                    40215,
+                    50215
+                ]
+            }
+        ]
+    },
+    "experiment_mode": "evaluate_checkpoint",
+    "checkpoint": {
+        "path": "results/task3/experiments/Report_Task3_Reference_15000/models/train_w21_a20021.pt",
+        "training_world_seed": 21,
+        "training_agent_seed": 20021,
+        "training_rounds": 15000,
+        "source_tag": "Report_Task3_Reference_15000_existing_fixed_endpoint"
+    }
+}

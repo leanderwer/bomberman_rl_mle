@@ -1,0 +1,59 @@
+{
+    "experiment_name": "task1_wait_action_long",
+    "description": "Controlled convergence test for the Task 1 Q-learning agent with WAIT and 2000 training rounds.",
+    "agent": "q_learning_agent",
+    "scenario": "coin-heaven",
+    "feature_version": "task1_baseline_v1",
+    "reward_version": "task1_wait_v1",
+    "training": {
+        "rounds": 2000,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            },
+            {
+                "world_seed": 22,
+                "agent_seed": 10022
+            },
+            {
+                "world_seed": 33,
+                "agent_seed": 10033
+            },
+            {
+                "world_seed": 44,
+                "agent_seed": 10044
+            },
+            {
+                "world_seed": 55,
+                "agent_seed": 10055
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "development_smoke_v1",
+        "rounds_per_seed": 50,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

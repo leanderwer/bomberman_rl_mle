@@ -1,0 +1,64 @@
+{
+    "experiment_name": "task2_baseline_multiseed_v1_sarsa",
+    "description": "Five-seed Task 2 baseline with bomb-aware categorical features, sparse event-based rewards and matched independent evaluation seeds on Classic.",
+    "agent": "sarsa_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_baseline_v1",
+    "reward_version": "task2_baseline_v1",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task1_visit_decay_v1",
+    "exploration_version": "task2_epsilon_3000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "training": {
+        "rounds": 4500,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            },
+            {
+                "world_seed": 22,
+                "agent_seed": 10022
+            },
+            {
+                "world_seed": 33,
+                "agent_seed": 10033
+            },
+            {
+                "world_seed": 44,
+                "agent_seed": 10044
+            },
+            {
+                "world_seed": 55,
+                "agent_seed": 10055
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_development_comparison_v1",
+        "rounds_per_seed": 50,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

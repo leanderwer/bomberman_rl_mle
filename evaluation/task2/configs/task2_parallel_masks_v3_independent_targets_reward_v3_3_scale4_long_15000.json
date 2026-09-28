@@ -1,0 +1,49 @@
+{
+    "experiment_name": "task2_parallel_masks_v3_independent_targets_reward_v3_3_scale4_long_15000_v1",
+    "description": "Controlled single-seed 15000-round Task 2 target-adherence scale ablation. Relative to reward v3.2, it changes only the independent target reward scale from 0.005 to 0.020. Coin-distance and bomb-quality strengths, true-conflict neutrality, all outcome and bomb-site rewards, movement costs, the self-kill penalty, urgency penalties, feature version, action space, learning rate, exploration schedule, discount factor, seeds, and evaluation protocol remain unchanged.",
+    "agent": "q_learning_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_parallel_masks_independent_targets_v3",
+    "reward_version": "task2_hierarchical_independent_targets_v3_3",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task1_visit_decay_v1",
+    "exploration_version": "task2_epsilon_10000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "training": {
+        "rounds": 15000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_development_comparison_v1",
+        "rounds_per_seed": 50,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

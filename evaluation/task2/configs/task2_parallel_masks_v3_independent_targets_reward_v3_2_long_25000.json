@@ -1,0 +1,48 @@
+{
+    "experiment_name": "task2_parallel_masks_v3_independent_targets_reward_v3_2_long_25000_v1",
+    "description": "Controlled single-seed 25000-round Task 2 independent-target reference experiment. It keeps the v3.2 feature, reward, action-space, learning-rate, discount-factor, training seed, and evaluation protocol unchanged while extending training and exploration to test whether the larger categorical state space can be learned without stronger target shaping. Epsilon decays from 1.0 to 0.05 over 17500 rounds, followed by 7500 consolidation rounds at the minimum.",
+    "agent": "q_learning_agent",
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task2_parallel_masks_independent_targets_v3",
+    "reward_version": "task2_hierarchical_independent_targets_v3_2",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task1_visit_decay_v1",
+    "exploration_version": "task2_epsilon_17500_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "training": {
+        "rounds": 25000,
+        "runs": [
+            {
+                "world_seed": 11,
+                "agent_seed": 10011
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task2_development_comparison_v1",
+        "rounds_per_seed": 50,
+        "runs": [
+            {
+                "world_seed": 101,
+                "agent_seed": 10101
+            },
+            {
+                "world_seed": 102,
+                "agent_seed": 10102
+            },
+            {
+                "world_seed": 103,
+                "agent_seed": 10103
+            },
+            {
+                "world_seed": 104,
+                "agent_seed": 10104
+            },
+            {
+                "world_seed": 105,
+                "agent_seed": 10105
+            }
+        ]
+    }
+}

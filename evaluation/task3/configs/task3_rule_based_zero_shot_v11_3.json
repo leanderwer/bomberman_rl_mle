@@ -1,0 +1,51 @@
+{
+    "experiment_name": "task3_rule_based_zero_shot_v11_3_v1",
+    "description": "Evaluate the frozen V11_3 coin-collector checkpoint (20000 training rounds) against one rule_based_agent. No training or checkpoint updates. Use the same five held-out seed pairs and 200 rounds per seed as the paired V9/V11_3 comparison. Full evaluation diagnostics; no replays. Wins use final game scores; tied highest scores count as draws.",
+    "agent": "q_learning_agent",
+    "opponents": [
+        "rule_based_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v11_3",
+    "reward_version": "task3_hierarchical_tactical_v5",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task3_epsilon_15000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "experiment_mode": "evaluate_checkpoint",
+    "checkpoint": {
+        "path": "results/task3/experiments/task3_coin_collector_v11_3_reward_v5_20000_v1/models/train_w21_a20021.pt",
+        "training_world_seed": 21,
+        "training_agent_seed": 20021,
+        "training_rounds": 20000
+    },
+    "evaluation": {
+        "seed_set": "task3_rule_based_held_out_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "runs": [
+            {
+                "world_seed": 201,
+                "agent_seed": 20201
+            },
+            {
+                "world_seed": 202,
+                "agent_seed": 20202
+            },
+            {
+                "world_seed": 203,
+                "agent_seed": 20203
+            },
+            {
+                "world_seed": 204,
+                "agent_seed": 20204
+            },
+            {
+                "world_seed": 205,
+                "agent_seed": 20205
+            }
+        ]
+    }
+}

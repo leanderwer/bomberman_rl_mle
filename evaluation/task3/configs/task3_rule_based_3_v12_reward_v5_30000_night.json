@@ -1,0 +1,57 @@
+{
+    "experiment_name": "task3_rule_based_3_v12_reward_v5_30000_night_v1",
+    "description": "V12 with arrival-aware pressure at threshold 0.25, independent block safety, existing-block priority, HOLD pooling and WAIT safety conditioned on our first-action body occupancy. No pressure retry memory. Train from scratch against 3 rule_based_agent opponent(s) for 30000 rounds with Reward V5, world/agent seeds 21/20021, alpha 0.1 with visit-decay power 0.60, gamma 0.95 and sampled 5-step Q-learning. Epsilon reaches 0.05 after 22000 completed rounds. Checkpoints every 100 rounds retain canonical state-action update counts. Evaluate against the same roster on five held-out seed pairs, 200 rounds each, with existing diagnostics and no replays.",
+    "agent": "q_learning_agent",
+    "opponents": [
+        "rule_based_agent",
+        "rule_based_agent",
+        "rule_based_agent"
+    ],
+    "scenario": "classic",
+    "coins_per_round": 9,
+    "feature_version": "task3_parallel_masks_tactical_bombs_v12",
+    "reward_version": "task3_hierarchical_tactical_v5",
+    "action_space_version": "task2_all_actions_v1",
+    "learning_rate_version": "task2_visit_decay_power_060_v1",
+    "exploration_version": "task3_epsilon_22000_v1",
+    "discount_factor_version": "gamma_095_v1",
+    "td_target_version": "q_learning_5_step_v1",
+    "training": {
+        "rounds": 30000,
+        "checkpoint_interval": 100,
+        "runs": [
+            {
+                "world_seed": 21,
+                "agent_seed": 20021
+            }
+        ]
+    },
+    "evaluation": {
+        "seed_set": "task3_rule_based_3_held_out_v1",
+        "rounds_per_seed": 200,
+        "save_replays": false,
+        "runs": [
+            {
+                "world_seed": 201,
+                "agent_seed": 20201
+            },
+            {
+                "world_seed": 202,
+                "agent_seed": 20202
+            },
+            {
+                "world_seed": 203,
+                "agent_seed": 20203
+            },
+            {
+                "world_seed": 204,
+                "agent_seed": 20204
+            },
+            {
+                "world_seed": 205,
+                "agent_seed": 20205
+            }
+        ]
+    },
+    "experiment_mode": "train_and_evaluate"
+}
